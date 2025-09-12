@@ -8,6 +8,8 @@
         public int OrderCount { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal TotalPrice { get; set; }
-        public DateTime SaleDate { get; set; }
+        public DateTime OrderDate { get; set; }
+        public Product Product { get; set; }
+        public Customer Customer { get; set; }
     }
 }
