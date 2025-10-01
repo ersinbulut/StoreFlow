@@ -1,0 +1,139 @@
+﻿CRUD & Koleksiyon İşlemleri
+-----------------------------------------------------------
+ToList → Sorgu sonucunu listeye çevirir.
+
+Add → Yeni bir nesneyi ekler.
+
+Find → Bir nesneyi primary key ile bulur.
+
+Remove → Var olan nesneyi siler.
+
+Update → Var olan nesneyi günceller.
+
+AddRange → Birden fazla nesneyi ekler.
+
+AddRangeAsync → AddRange’in asenkron hali.
+
+Attach → Nesneyi EF context’e takip için ekler (insert yapmaz).
+
+AttachRange → Birden fazla nesneyi takip için ekler.
+
+Sayısal İşlemler
+-----------------------------------------------------------
+
+Count → Eleman sayısını döner.
+
+LongCount → Çok büyük koleksiyonlarda uzun integer ile sayar.
+
+Min / Max → En küçük / en büyük değeri döner.
+
+Sum → Toplam değeri döner.
+
+Avg → Ortalama değeri döner.
+
+CountBy → Gruplandırıp her gruptaki eleman sayısını döner (EF Core 8).
+
+Sorgu Sonuçları
+-----------------------------------------------------------
+
+FirstOrDefault → İlk elemanı, yoksa null.
+
+First → İlk eleman (yoksa hata).
+
+Last → Son eleman.
+
+SingleOrDefault → Tek eleman, yoksa null (fazlaysa hata).
+
+DefaultIfEmpty → Koleksiyon boşsa varsayılan değer döner.
+
+Sorgulama
+-----------------------------------------------------------
+Where → Filtreleme yapar.
+
+Select → Belirli alanları seçer (projection).
+
+Include → İlişkili tabloları dahil eder (Eager loading).
+
+OrderByAsc / OrderByDesc → Artan / azalan sıralama.
+
+Take → İlk N elemanı alır.
+
+Skip → İlk N elemanı atlar.
+
+SkipLast → Sondan N elemanı atlar.
+
+TakeLast → Sondan N elemanı alır.
+
+Reverse → Koleksiyonu ters çevirir.
+
+Karşılaştırma & Kontrol
+-----------------------------------------------------------
+
+Any → Herhangi bir eleman var mı?
+
+All → Tüm elemanlar koşulu sağlıyor mu?
+
+Contain → Eleman içeriyor mu?
+
+StartsWith → String belirli harflerle başlıyor mu?
+
+EndsWith → String belirli harflerle bitiyor mu?
+
+Async Versiyonlar
+-----------------------------------------------------------
+
+ToListAsync → Listeye asenkron çevirir.
+
+AddAsync → Tek nesneyi asenkron ekler.
+
+SaveChangesAsync → Değişiklikleri veritabanına asenkron kaydeder.
+
+FindAsync → Asenkron bulma.
+
+AllAsync / AnyAsync → All ve Any’nin async halleri.
+
+Küme & Kombinasyon İşlemleri
+-----------------------------------------------------------
+
+Aggregate → Bir koleksiyonu reduce edip tek değer üretir.
+
+Append → Listenin sonuna eleman ekler (yeni koleksiyon döner).
+
+Prepend → Listenin başına eleman ekler.
+
+Chunk → Koleksiyonu parçalara böler.
+
+Concat → İki koleksiyonu birleştirir.
+
+Union → Tekrarsız birleşim.
+
+UnionBy → Bir alan bazında tekrarsız birleşim.
+
+Distinct → Tekrarlayan değerleri kaldırır.
+
+Except → İlk listede olup diğerinde olmayanları döner.
+
+ExceptBy → Belirli bir property’ye göre Except.
+
+Intersect → Ortak elemanları döner.
+
+Group By → Gruplama yapar.
+
+Group Join → İki tabloyu gruplayarak birleştirir.
+
+Join → Tablo veya koleksiyonları birleştirir (INNER JOIN gibi).
+
+EF Core Özel
+-----------------------------------------------------------
+
+SaveChanges → Yapılan değişiklikleri veritabanına kaydeder.
+
+Entry → Bir nesnenin EF Core’daki state bilgisine erişir.
+
+AsNoTracking → EF, nesneyi takip etmeden getirir (daha performanslı).
+
+AsQueryable (Asquaryble yazmışsın) → LINQ sorgusuna çevrilmesini sağlar.
+
+From → (EF SQL sorgularında) SQL’den sorgu başlatır.
+
+Index → Koleksiyon içindeki elemanın indeksini alır.

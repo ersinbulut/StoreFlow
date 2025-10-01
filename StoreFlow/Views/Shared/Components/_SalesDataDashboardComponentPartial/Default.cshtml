@@ -1,15 +1,13 @@
 ﻿@model List<Order>
-
 @{
     string status = "";
 }
-
 <div class="col-md-8 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">
                 <i class="fas fa-table"></i>
-             Son Siparişler
+                Son Siparişler
             </h4>
             <div class="table-responsive">
                 <table class="table">
@@ -26,15 +24,15 @@
                         {
                             <tr>
                                 <td class="font-weight-bold">
-									@item.Customer.CustomerName @item.Customer.CustomerSurname
+                                    @item.Customer.CustomerName @item.Customer.CustomerSurname
                                 </td>
                                 <td class="text-muted">
-									@item.Product.ProductName
+                                    @item.Product.ProductName
                                 </td>
                                 <td>
                                     @item.OrderCount
                                 </td>
-                                @if (item.Status=="Taşıma Durumunda")
+                                @if (item.Status == "Taşıma Durumunda")
                                 {
                                     <td>
                                         <label class="badge badge-warning badge-pill">@item.Status</label>
@@ -52,7 +50,6 @@
                                         <label class="badge badge-success badge-pill">@item.Status</label>
                                     </td>
                                 }
-
                                 @if (item.Status == "Sipariş Alındı")
                                 {
                                     <td>
@@ -65,18 +62,18 @@
                                         <label class="badge badge-info badge-pill">@item.Status</label>
                                     </td>
                                 }
-
-                             
+                                
                             </tr>
                         }
-                       
-                      
+
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
 
 <div class="col-md-4 grid-margin stretch-card">
     <div class="card">

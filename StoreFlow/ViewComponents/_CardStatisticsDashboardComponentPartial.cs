@@ -15,7 +15,7 @@ namespace StoreFlow.ViewComponents
             ViewBag.totalCustomerCount = _context.Customers.Count();
             ViewBag.totalCategoryCount = _context.Categories.Count();
             ViewBag.totalProductCount = _context.Products.Count();
-            ViewBag.avgCustomerBalance = _context.Customers.Average(x => x.CustomerBalance).ToString("0.00");
+            ViewBag.avgCustomerBalance = _context.Customers.Average(x => x.CustomerBalance);
             ViewBag.totalOrderCount = _context.Orders.Count();
             ViewBag.sumOrderProductCount = _context.Orders.Sum(x => x.OrderCount);
             return View();

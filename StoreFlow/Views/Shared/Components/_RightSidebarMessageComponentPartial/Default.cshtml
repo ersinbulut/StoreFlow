@@ -7,9 +7,9 @@
     </div>
     <ul class="chat-list">
 
-        @foreach (var item in Model)
+        @foreach(var item in Model)
         {
-              <li class="list">
+            <li class="list">
                 <div class="profile"><img src="@item.SenderImageUrl" alt="image"><span class="online"></span></div>
                 <div class="info">
                     <p>@item.SenderNameSurname</p>
@@ -18,8 +18,6 @@
                 <small class="text-muted my-auto">@item.Datetime.ToShortDateString()</small>
             </li>
         }
-      
-      
        
     </ul>
 </div>

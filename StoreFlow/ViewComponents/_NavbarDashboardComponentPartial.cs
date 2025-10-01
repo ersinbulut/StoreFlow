@@ -2,7 +2,7 @@
 
 namespace StoreFlow.ViewComponents
 {
-    public class _NavbarDashboardComponentPartial:ViewComponent
+    public class _NavbarDashboardComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

@@ -12,26 +12,30 @@ namespace StoreFlow.ViewComponents.StatisticsViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            ViewBag.categoryCount = _context.Categories.Count();//kategori sayısı   
-            ViewBag.productMaxPrice = _context.Products.Max(x => x.ProductPrice);//en yüksek fiyat
-            ViewBag.productMinPrice = _context.Products.Min(x => x.ProductPrice);//en düşük fiyat
+            ViewBag.categoryCount = _context.Categories.Count();
+            ViewBag.productMaxPrice = Math.Round(_context.Products.Max(x => x.ProductPrice), 2);
+            ViewBag.productMinPrice = Math.Round(_context.Products.Min(x => x.ProductPrice), 2);
 
-            ViewBag.productMaxPriceProductName = _context.Products.Where(x => x.ProductPrice == (_context.Products.Max(y => y.ProductPrice))).Select(z => z.ProductName).FirstOrDefault();//en yüksek fiyatlı ürünün adı
+            ViewBag.productMaxPriceProductName = _context.Products
+                .Where(x => x.ProductPrice == (_context.Products.Max(y => y.ProductPrice)))
+                .Select(z => z.ProductName)
+                .FirstOrDefault();
 
-            ViewBag.productMinPriceProductName = _context.Products.Where(x => x.ProductPrice == (_context.Products.Min(y => y.ProductPrice))).Select(z => z.ProductName).FirstOrDefault();//en düşük fiyatlı ürünün adı
+            ViewBag.productMinPriceProductName = _context.Products
+                .Where(x => x.ProductPrice == (_context.Products.Min(y => y.ProductPrice)))
+                .Select(z => z.ProductName)
+                .FirstOrDefault();
 
+            ViewBag.totalSumProductStock = _context.Products.Sum(x => x.ProductStock);
+            ViewBag.averageProductStock = Math.Round(_context.Products.Average(x => x.ProductStock), 2);
+            ViewBag.averageProductPrice = Math.Round(_context.Products.Average(x => x.ProductPrice), 2);
 
-            ViewBag.totalSumProductStock = _context.Products.Sum(x => x.ProductStock);//toplam stok sayısı
-            ViewBag.averageProductStock = _context.Products.Average(x => x.ProductStock);//ortalama stok sayısı
-            ViewBag.averageProductPrice = _context.Products.Average(x => x.ProductPrice);// ortalama ürün fiyatı
-
-
-            ViewBag.biggerPriceThen1000ProductCount = _context.Products.Where(x => x.ProductPrice > 1000).Count();//fiyatı 1000 den büyük ürün sayısı
-            ViewBag.getIDIs4ProductName=_context.Products.Where(x=>x.ProductId==4).Select(y=>y.ProductName).FirstOrDefault();//id si 4 olan ürünün adı
-            ViewBag.stockCountBigger50AndSmaller100ProductCount = _context.Products.Where(x => x.ProductStock > 50 && x.ProductStock < 100).Count();//stok sayısı 50 den büyük 100 den küçük ürün sayısı
-
+            ViewBag.biggerPriceThen1000ProductCount = _context.Products.Where(x => x.ProductPrice > 1000).Count();
+            ViewBag.getIDIs4ProductName = _context.Products.Where(x => x.ProductId == 4).Select(y => y.ProductName).FirstOrDefault();
+            ViewBag.stockCountBigger50AndSmaller100ProductCount = _context.Products.Where(x => x.ProductStock > 50 && x.ProductStock < 100).Count();
 
             return View();
         }
+
     }
 }

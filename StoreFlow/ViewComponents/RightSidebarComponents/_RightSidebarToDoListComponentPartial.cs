@@ -12,8 +12,8 @@ namespace StoreFlow.ViewComponents.RightSidebarComponents
         }
         public IViewComponentResult Invoke()
         {
-            var values = _context.Todos.OrderBy(x => x.TodoId).ToList().TakeLast(15).ToList();
-            return View();
+            var values = _context.Todos.OrderBy(x=>x.TodoId).ToList().TakeLast(15).ToList();
+            return View(values);
         }
     }
 }

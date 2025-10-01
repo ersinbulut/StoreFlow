@@ -35,13 +35,12 @@ namespace StoreFlow.Controllers
 
         public IActionResult TodoAggreagatePriority()
         {
-            var priorityFirstlyTodo = _context.Todos
-                .Where(x => x.Priority == "Birincil")
-                .Select(y => y.Description)
-                .ToList();
+            var priorityFirstlyTodo = _context.Todos.Where(t => t.Priority == "Birincil").Select(t => t.Description).ToList();
 
-            string result = priorityFirstlyTodo.Aggregate((acc, desc) => acc + ", " + desc);
-            ViewBag.results = result;
+            var result = priorityFirstlyTodo.Aggregate(string.Empty, (acc, desc) => acc + $"<li >{desc}</li>");
+
+            ViewBag.result = result;
+
             return View();
         }
 
